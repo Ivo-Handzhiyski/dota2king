@@ -34,7 +34,8 @@ def get_match_history(hero_id = None, game_mode = None, skill = None, min_player
 
     api_point = f'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1/?access_token={ACCESS_TOKEN}'
     data = requests.get(api_point)
-    print(json.parse(data))
+
+    return data.text
 
 
 

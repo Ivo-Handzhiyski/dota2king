@@ -1,0 +1,142 @@
+TODO list:
+    - Database
+        - Create the Database / Schema
+        - Create Data Ingestion Pipeline
+            - Integrate  Steam API to fetch match data, hero stats, and player performance.
+            - Schedule regular data updates using tools like Airflow or Cron.
+        - Data versioning
+            - Implement mechanisms to track patch updates and changes in hero attributes.
+            - Use historical data to support analysis over different patches.
+    - BackEnd
+        - Core APIs 
+            - Match Data API: Fetch player stats, hero performance, and team compositions for specific matches.
+            - Hero Stats API: Provide win rates, pick rates, counters, and synergy data.
+            - Draft Assistance API: Suggest heroes for drafts based on team and enemy picks.
+        - Replay Parsing
+            - Use Python tools like clarity to parse .dem files.
+            - Extract events such as kills, item purchases, and player movements.
+        - Build Middleware for Live Data
+            - Stream real-time data from the Dota 2 client to provide live match stats.
+        - Authenticaion
+            - Create a system for user profiles, allowing personalized recommendations and saved data (e.g., favorite heroes or teams).
+        - Logging
+            - Add robust error handling for API calls and replay parsing.
+            - Use tools like Sentry or ELK Stack for logging and monitoring.
+    - Web
+        - Frontend development
+            - dashboards
+            - hero insights
+            - draft assistant
+        - Real-time features
+            -Integrate WebSockets to update live match stats and hero suggestions dynamically.
+        - Responsive designs
+            - Ensure the site works seamlessly on mobile, tablet, and desktop devices.
+        - User interactions
+            - Enable users to upload replay files for analysis.
+            - Provide options to customize dashboards (e.g., select favorite heroes, regions).
+    - AI
+        - Draft recommendation model
+            - Train a model using historical draft data to predict the best hero for a given situation.
+            - Use libraries like Scikit-Learn or TensorFlow.
+        - player performance predictions
+            - Use ML models to predict a player’s performance based on historical matches, hero choice, and current stats.
+        - Sentiment analysis for patch notes
+            - Analyze patch notes to determine how changes might affect hero win rates and popularity.
+        - Hero synergy scoring
+        - Clustering for player architypes
+            - Group players into archetypes (e.g., "Farmer", "Ganker") using clustering algorithms like K-Means.
+    - Analysis
+        - Meta trends over time
+            - Create visualizations showing how the meta (heroes, items, strategies) has evolved across patches.
+        - Heatmaps
+            - Generate heatmaps of player movements, ward placements, or teamfights.
+        - Hero Win Rate Analysis
+            - Analyze how win rates vary by skill brackets, patches, and team compositions.
+        - Player Progression Reports
+            - Generate personalized reports showing skill improvements and areas to focus on.
+    - Community Features
+        - Twitch Integration
+            - Build a Twitch bot for streamers to provide real-time match stats and hero info to viewers.
+        - Social Sharing
+            - Allow users to share drafts, match stats, or hero insights on social media.
+    - Automation
+        - Data collection
+            - Automate data scraping from OpenDota and other APIs for continuous updates.
+        - Deployment Automation
+            - Use CI/CD pipelines to automate the deployment of backend APIs, web apps, and databases.
+        - Daily Meta Reports
+            - Automate the generation of daily or weekly reports summarizing hero pick rates, win rates, and patch changes.
+            - Deliver reports via email or a notification system.
+    - Gamification
+        - Hero Mastery System
+            - Develop a progression system where users unlock achievements or levels for playing specific heroes.
+            - Link with API data to calculate mastery based on win rates, hero-specific actions, etc.
+    - Competitive Tools
+        - Tournament Admin Dashboard
+            - Create a platform for managing Dota 2 tournaments, including brackets, match scheduling, and live updates.
+            - Add features like dispute handling and automatic score updates.
+        - Scrim Finder
+            - Build a matchmaking system for teams looking to scrim against others of similar skill level.
+            - Include filters for time zones, regions, and MMR.
+        - Team Draft Analyzer
+            - Allow competitive teams to upload replays and analyze drafts to identify patterns or weaknesses.
+            - Provide suggestions for countering future opponents.
+        - Player Synergy Calculator
+            - Analyze past matches of a team to evaluate the synergy between players.
+            - Highlight pairings that perform well together.
+    - Entertainment
+        - Hero Personality Quiz
+            - Create a quiz that matches users to a hero based on their playstyle and personality.
+            - Add fun explanations for each result.
+        - Dota Trivia Game
+            - Build a trivia game with questions about hero lore, game mechanics, and professional matches.
+            - Include multiplayer or leaderboard modes.
+        - Dota Memory Game
+            - Develop a card-matching game using hero icons, abilities, or items.
+            - Add a timer and scoring for competitive play.
+
+
+Phase 1 (Core Features)
+    Database: Schema for heroes, matches, and players.
+    Backend: Match data and hero stats API.
+    Web: Basic dashboards (hero insights, match stats).
+
+Phase 2 (Interactive Features)
+    AI: Draft assistant and hero synergy scoring.
+    Visualization: Heatmaps and interactive timelines.
+    Community: Hero guide creator and replay sharing.
+
+Phase 3 (Advanced Features)
+    Automation: Daily meta reports and replay batch processing.
+    Competitive Tools: Team draft analyzer and synergy calculator.
+    Gamification: Hero mastery system and seasonal events.
+
+Phase 4 (Polishing & Scaling)
+    Add Twitch integration, tournament dashboards, and educational content.
+    Optimize backend and database for high traffic.
+
+
+Ecosystem
+    +------------------+------------------------------------------------------------------------------------------+
+    | Layer            | Technology                                                                               |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Core Language    | Python                                                                                   |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Database         | PostgreSQL (for relational data), MongoDB (for unstructured data)                        |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Backend          | FastAPI (for APIs), Flask (for lightweight applications)                                 |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Frontend         | React.js (for a modern, responsive UI), Dash (for Python-based interactive dashboards)   |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Visualization    | Plotly (for interactive charts and graphs), D3.js (for advanced custom visualizations)   |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Machine Learning | Scikit-Learn (for traditional ML), TensorFlow (for deep learning models)                 |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Automation       | Airflow (for task orchestration), Celery (for background job scheduling)                 |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Data Sources     | Steam API (for player/account data)                                                      |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Deployment       | Docker (for containerization), AWS (for hosting and storage services like S3 and Lambda) |
+    +------------------+------------------------------------------------------------------------------------------+
+    | Monitoring       | Prometheus + Grafana (for monitoring services), Sentry (for error tracking and logging)  |
+    +------------------+------------------------------------------------------------------------------------------+
